@@ -14,7 +14,7 @@
 
     $message ='<table style="width:100%">
         <tr>
-            <td>Name'.$name.' </br>  Email:'.$email.'</td>
+            <td>'.$name.'  '.$email.'</td>
         </tr>
         <tr><td>Payment Method: '.$payment.'</td></tr>
         <tr><td>Project: '.$type.'</td></tr>
@@ -23,10 +23,11 @@
 
     if (@mail($to, $subject, $message, $headers))
     {
-        echo 'Redirecting.';
+        echo 'Redirecting...';
         echo '<meta http-equiv="refresh" content="0;url=https://www.paypal.com/cgi-bin/webscr?business=mahmoud.m.abdelmalek@gmail.com&cmd=_xclick&currency_code=USD&amount='.$_POST["amount"].'&item_name=Donate">';
     }else{
-        echo 'failed';
+        echo 'Payment Failed';
+        echo '<meta http-equiv="refresh" content="0;url=http://thespark2.lembo.tech">';
     }
 
 ?>
